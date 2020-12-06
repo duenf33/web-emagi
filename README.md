@@ -53,4 +53,12 @@ For search, we'll want to print every single emoji that matches the search crite
 ### Stretch Goals
 
 * Change the event listener so that it fires when they type something. You'll want to add it as an event listener on the input box, not the button. But what event? That's up to you to figure out! If you get this one done, you can get rid of the submit button, since it's totally unneeded!
-* More coming soon!
+* Let's add some help text for the user to explain these five fabulous functions. But with the twist of only showing the help text when they want it, hiding it otherwise. We'll make a collapsible html element with a toggle to show or hide it.
+  * You'll need a class for this that will make an element invisible, giving it the rule to make `display` be `none`. This will take it right off the DOM, so things will move up to take its place when it's no longer there, and move down to accommodate its space whenever we remove that rule.
+  * Now make a `ul` somewhere near the top of our page. Inside the `ul`, make an `li` for each of our functions, explaining what it does. Give the `ul` the class we just defined, and it should disappear, moving everything else up.
+  * Above that `ul`, make an `a` tag that links nowhere (you could style it differently, maybe as a `button` tag even, but an `a` tag makes it clear it's clickable). Give it an `id` of your choosing.
+  * What we're going to do is make it so that when they click that `a`, the `ul` loses that class. That way, it will show the help section. If they click it again, it will gain that class again, making it disappear once more. Let's jump over to our `main.js` and make it happen!
+  * Add an event listener function that happens when the `a` tag is clicked.
+  * In that function, query your `ul` and save it as a variable.
+  * Now check if it has your hide-the-element class from your CSS using the `className` property (you'll have to do a bit of research on this one!). If it does, take it away. If it doesn't, add it.
+  * And you're done!
