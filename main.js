@@ -41,11 +41,23 @@ const buttonPressed = () => {
         case "madlib":
             userOutput.innerText = madlib(userInput);
             break;
-        case "search":
-            userOutput.innerText = search(userInput);
+        case "search":     
+            const searchInput = search(userInput);
+            const h1Results = document.querySelector('h1');
+            for(const inputs in searchInput){
+            const newParagraph = document.createElement('p');
+            newParagraph.innerText = searchInput[inputs].symbol +` ${searchInput[inputs].name}`;
+            h1Results.appendChild(newParagraph);
+            }
             break;
         case "random":
-            console.log(getCategory(userInput));
+            const getCat = getCategory(userInput);
+            if(getCat.length === 0){
+                userOutput.innerText = randomElement(emojis).symbol;
+            } 
+            if(getCat.length !== 0){
+                userOutput.innerText = randomElement(getCategory(userInput)).symbol;
+            }
             break;
     }
 
