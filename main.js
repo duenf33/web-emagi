@@ -41,10 +41,12 @@ const buttonPressed = () => {
         case "madlib":
             userOutput.innerText = madlib(userInput);
             break;
-        case "search":     
+        case "search":  
             const searchInput = search(userInput);
             const h1Results = document.querySelector('h1');
+            h1Results.innerHTML = '';
             for(const inputs in searchInput){
+            console.log(inputs)
             const newParagraph = document.createElement('p');
             newParagraph.innerText = searchInput[inputs].symbol +` ${searchInput[inputs].name}`;
             h1Results.appendChild(newParagraph);
@@ -59,6 +61,9 @@ const buttonPressed = () => {
                 userOutput.innerText = randomElement(getCategory(userInput)).symbol;
             }
             break;
+        default:
+            console.log('bug');
+        break
     }
 
 }
